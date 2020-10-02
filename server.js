@@ -29,11 +29,9 @@ function write(){
 }
 
 function read(){
-    let tempData = fs.read('./db/db.json','utf8', function(err, data){
+    fs.read('./db/db.json','utf8', function(err, data){
         if(err){return console.log(err)}
         notes.push ( ...JSON.parse(data) );
-        
-        read();
     });
 }
 
