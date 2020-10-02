@@ -41,6 +41,20 @@ function readFile(){
 
 readFile();
 
+// API Routes
+app.get('/api/notes', function (req, res){
+    return res.json(notes);
+});
+
+app.post('/api/notes', function (req, res){
+    const note = {'id': Date.now(), ...req.body};
+    notes.push(note);
+
+    writeFile();
+
+    return res.send('This note was saved');
+})
+
 // DELETE
 app.delete('/api/notes/:id', function(req, res){
     const chosen = req.params.id;
@@ -58,20 +72,6 @@ app.get('*', function(req, res){
     res.send(path.join(__dirname , 'public' , 'index.html'));
 });
 
-
-// API Routes
-app.get('/api/notes', function (req, res){
-    return res.json(notes);
-});
-
-app.post('/api/notes', function (req, res){
-    const note = {'id': Date.now(), ...req.body};
-    notes.push(note);
-
-    writeFile();
-
-    return res.send('This note was saved');
-})
 
 // start server
 app.listen(PORT, function (){
