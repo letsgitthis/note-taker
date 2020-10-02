@@ -10,7 +10,7 @@
 * [Questions](#questions)
     
 ## Description
-### An application that can be used to write,vsave, view, and delete notes. 
+### An application that can be used to write, save, view, and delete notes. 
     
 ## Installation
 ### Download or use the git clone command. Be sure to npm install the listed dependencies.
@@ -31,6 +31,6 @@
 ### (https://github.com/letsgitthis)
 ### jbentley1011@gmail
 
-## Demo
-[![demo]({})]({https://note-taker-johnbentley.herokuapp.com/} "Heroku site")
+## Link to Deployed Application
+[![Heroku Site]({})]({https://note-taker-johnbentley.herokuapp.com/} "Heroku site")
 <!-- [![Alternate Text]({image-url})]({video-url} "Link Title") -->
