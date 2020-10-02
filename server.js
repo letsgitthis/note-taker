@@ -17,15 +17,6 @@ app.use(express.static(__dirname + '/public'));
 
 const notes = [];
 
-// HTML Routes
-app.get("/", function(req, res){
-    res.send(path.join(__dirname , 'public' , 'index.html'));
-});
-
-app.get("/notes", function(req, res){
-    res.send(path.join(__dirname , 'public' , 'notes.html'));
-});
-
 function writeFile(){
     fs.writeFile('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
         if(err){return console.log(err)}
@@ -40,6 +31,15 @@ function readFile(){
 }
 
 readFile();
+
+// HTML Routes
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname , 'public' , 'index.html'));
+});
+
+app.get("/notes", function(req, res){
+    res.sendFile(path.join(__dirname , 'public' , 'notes.html'));
+});
 
 // API Routes
 app.get('/api/notes', function (req, res){
