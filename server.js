@@ -32,8 +32,11 @@ function read(){
     let tempData = fs.read('./db/db.json','utf8', function(err, data){
         if(err){return console.log(err)}
         notes.push ( ...JSON.parse(data) );
+        
+        read();
     });
 }
+
 
 // HTML Routes
 app.get("/", function(req, res){
@@ -76,7 +79,6 @@ app.get('*', function(req, res){
     res.send(path.join(__dirname , 'public' , 'index.html'));
 });
 
-// read();
 
 // start server
 app.listen(PORT, function (){
