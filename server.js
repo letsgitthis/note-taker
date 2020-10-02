@@ -72,7 +72,6 @@ app.get('*', function(req, res){
     res.send(path.join(__dirname , 'public' , 'index.html'));
 });
 
-
 // start server
 app.listen(PORT, function (){
     console.log(`App is listening on http://localhost:${PORT}`)
