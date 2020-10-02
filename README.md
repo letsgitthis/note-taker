@@ -32,5 +32,4 @@
 ### jbentley1011@gmail
 
 ## Link to Deployed Application
-[![Heroku Site]({})]({https://note-taker-johnbentley.herokuapp.com/} "Heroku site")
-<!-- [![Alternate Text]({image-url})]({video-url} "Link Title") -->
+[![Heroku Site]({})](https://note-taker-johnbentley.herokuapp.com/)
