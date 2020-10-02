@@ -76,7 +76,7 @@ app.get('*', function(req, res){
     res.send(path.join(__dirname , 'public' , 'index.html'));
 });
 
-read();
+// read();
 
 // start server
 app.listen(PORT, function (){
