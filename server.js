@@ -16,22 +16,16 @@ app.use(express.static(__dirname + '/public'));
 
 let notes = [];
 
-function write(){
-    fs.write('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
+function writeFile(){
+    fs.writeFile('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
         if(err){return console.log(err)}
     });
 }
 
-function write(){
-    fs.write('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
+function readFile(){
+    fs.readFile('./db/db.json','utf8', function(err, data){
         if(err){return console.log(err)}
-    });
-}
-
-function read(){
-    fs.read('./db/db.json','utf8', function(err, data){
-        if(err){return console.log(err)}
-        notes.push ( ...JSON.parse(data) );
+        notes.push( ...JSON.parse(data) );
     });
 }
 
@@ -55,7 +49,7 @@ app.post('/api/notes', function (req, res){
     const note = {'id': Date.now(), ...req.body};
     notes.push(note);
 
-    write();
+    writeFile();
 
     return res.send('This note was saved');
 })
@@ -67,7 +61,7 @@ app.delete('/api/notes/:id', function(req, res){
     let index = notes.findIndex(note => note.id==chosen);
     notes.splice(index,1);
 
-    write();
+    writeFile();
 
     return res.send('This note was deleted');
 })
