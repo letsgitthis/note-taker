@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 let notes = [];
 
 function write(){
-    fs.writeFile('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
+    fs.write('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
         if(err){return console.log(err)}
     });
 }
