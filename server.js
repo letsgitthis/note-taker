@@ -17,6 +17,12 @@ app.use(express.static(__dirname + '/public'));
 let notes = [];
 
 function write(){
+    fs.writeFile('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
+        if(err){return console.log(err)}
+    });
+}
+
+function write(){
     fs.write('./db/db.json',JSON.stringify(notes, null, 2),'utf8', function(err){
         if(err){return console.log(err)}
     });
@@ -69,7 +75,7 @@ app.delete('/api/notes/:id', function(req, res){
     return res.send('This note was deleted');
 })
 
-read();
+// read();
 
 // start server
 app.listen(PORT, function (){
